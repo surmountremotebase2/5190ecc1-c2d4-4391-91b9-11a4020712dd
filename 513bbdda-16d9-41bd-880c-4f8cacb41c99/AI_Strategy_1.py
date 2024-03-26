@@ -1,5 +1,5 @@
 from surmount.base_class import Strategy, TargetAllocation
-from surmount.technical_indicators import mac
+from surmount.technical_indicators import RSI
 from surmount.logging import log
 from surmount.data import Asset
 
@@ -35,7 +35,7 @@ class TradingStrategy(Strategy):
 
         # Calculate the 90-day momentum for each ETF and store it
         for ticker in self.tickers:
-            momentum = MACD(ticker, data["ohlcv"], 20, 50)
+            momentum = RSI(ticker, data["ohlcv"], 21)
             if momentum:
                 momentum_scores[ticker] = momentum[-1]  # Use the most recent momentum value
 
